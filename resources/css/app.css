@@ -20,6 +20,11 @@
     border-radius: 1rem !important; /* rounded-2xl */
 }
 
+/* Exception for room selection buttons in step 3 - keep original rounded-lg */
+.btn.flex-col {
+    border-radius: 0.5rem !important; /* rounded-lg */
+}
+
 .btn-xs {
     border-radius: 0.5rem !important; /* rounded-lg */
 }

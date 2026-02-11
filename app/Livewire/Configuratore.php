@@ -3,8 +3,10 @@
 namespace App\Livewire;
 
 use App\Models\Configuration;
+use App\Models\Payment;
 use App\Models\Room;
 use Illuminate\Support\Str;
+use Livewire\Attributes\Computed;
 use Livewire\Component;
 
 class Configuratore extends Component
@@ -74,6 +76,16 @@ class Configuratore extends Component
     public float $transportCost = 0;
 
     public int $finalTotal = 0;
+
+    public float $distanceDiscount = 0;
+
+    public float $transportTypeMultiplier = 0;
+
+    public float $floorDifferenceCost = 0;
+
+    public float $ztlCost = 0;
+
+    public float $packagingCost = 0;
 
     // Step 6 fields
     public ?string $selectedDate = null;
@@ -519,28 +531,42 @@ class Configuratore extends Component
     {
         $finalTotal = $this->totalPrice;
 
+        // Reset all cost components
+        $this->transportTypeMultiplier = 0;
+        $this->floorDifferenceCost = 0;
+        $this->ztlCost = 0;
+        $this->packagingCost = 0;
+        $this->distanceDiscount = 0;
+
         // Transport type multiplier
         $multipliers = [
             'solo_trasporto' => 1,
             'trasporto_parziale' => 1.7,
             'trasporto_totale' => 2.0,
         ];
-        $finalTotal *= ($multipliers[$this->tipoTrasporto] ?? 1);
+        $multiplier = $multipliers[$this->tipoTrasporto] ?? 1;
+        if ($multiplier > 1) {
+            $this->transportTypeMultiplier = $finalTotal * ($multiplier - 1);
+        }
+        $finalTotal *= $multiplier;
 
         // Floor difference
         if ($this->pianoScarico > $this->pianoCarico) {
             $diff = $this->pianoScarico - $this->pianoCarico;
-            $finalTotal += $diff * ($finalTotal * 0.02);
+            $this->floorDifferenceCost = $diff * ($finalTotal * 0.02);
+            $finalTotal += $this->floorDifferenceCost;
         }
 
         // ZTL
         if ($this->ztl) {
-            $finalTotal += 20;
+            $this->ztlCost = 20;
+            $finalTotal += $this->ztlCost;
         }
 
         // Imballaggio
         if ($this->imballaggio && $this->tipoTrasporto === 'solo_trasporto') {
-            $finalTotal += $finalTotal * 0.03;
+            $this->packagingCost = $finalTotal * 0.03;
+            $finalTotal += $this->packagingCost;
         }
 
         // Transport cost
@@ -549,12 +575,14 @@ class Configuratore extends Component
         // Distance discount
         $km = $this->distanzaTotale;
         if ($km > 100 && $km < 250) {
-            $finalTotal -= $finalTotal * 0.25;
+            $this->distanceDiscount = $finalTotal * 0.25;
         } elseif ($km > 250 && $km < 500) {
-            $finalTotal -= $finalTotal * 0.10;
+            $this->distanceDiscount = $finalTotal * 0.10;
         } elseif ($km > 500) {
-            $finalTotal -= $finalTotal * 0.05;
+            $this->distanceDiscount = $finalTotal * 0.05;
         }
+
+        $finalTotal -= $this->distanceDiscount;
 
         return $finalTotal > 0 ? round($finalTotal) : 0;
     }
@@ -590,8 +618,13 @@ class Configuratore extends Component
     private function updateItemQuantityRecursive(&$item, $quantity)
     {
         $item['quantity'] = $quantity;
+        // Le proprietà selezionate (es. materiale, dimensione) devono ereditare
+        // la quantità solo tramite il moltiplicatore del livello padre,
+        // non avere anche una propria quantità moltiplicata ricorsivamente.
+        // Altrimenti si ottengono quantità al quadrato/cubo (es. 13 → 13×13),
+        // con totali completamente sballati.
         if (isset($item['selectedProperty'])) {
-            $this->updateItemQuantityRecursive($item['selectedProperty'], $quantity);
+            $this->updateItemQuantityRecursive($item['selectedProperty'], 1);
         }
     }
 
@@ -672,10 +705,27 @@ class Configuratore extends Component
         $this->selectedPayment = $method;
     }
 
+    public function togglePrivacyConsent()
+    {
+        $this->privacyConsent = ! $this->privacyConsent;
+    }
+
     public function handleBooking()
     {
+        if (! $this->selectedDate) {
+            $this->bookingMessage = 'Seleziona un giorno';
+
+            return;
+        }
+
         if (! $this->selectedTimeSlot) {
             $this->bookingMessage = 'Seleziona un orario';
+
+            return;
+        }
+
+        if (empty($this->selectedPayment)) {
+            $this->bookingMessage = 'Seleziona un metodo di pagamento';
 
             return;
         }
@@ -716,10 +766,41 @@ class Configuratore extends Component
                 'summary' => "Trasloco del cliente Email: {$this->email} Telefono: {$this->phone} da {$this->luogoCarico} a {$this->luogoScarico} totale: {$this->calculateFinalTotal()}€",
             ];
 
+            // Se il pagamento è con carta, salva i dettagli e reindirizza a Stripe
+            if ($this->selectedPayment === 'carta') {
+                $config->update([
+                    'booking_details' => $bookingDetails,
+                    'payment_status' => 'pending',
+                ]);
+
+                $this->bookingLoader = false;
+
+                // Reindirizza a Stripe checkout tramite form POST
+                $this->dispatch('redirect-to-stripe', ['config_id' => $this->configId]);
+
+                return;
+            }
+
+            // Se il pagamento è alla consegna, completa direttamente e crea record di pagamento
             $config->update([
                 'booking_details' => $bookingDetails,
                 'current_step' => 7,
                 'status' => 'completed',
+                'payment_status' => 'pending',
+            ]);
+
+            // Crea un record di pagamento per il pagamento alla consegna
+            Payment::create([
+                'configuration_id' => $config->id,
+                'amount' => $this->calculateFinalTotal(),
+                'currency' => 'eur',
+                'payment_method' => 'cash_on_delivery',
+                'status' => 'pending',
+                'metadata' => [
+                    'customer_email' => $this->email,
+                    'customer_name' => $this->firstName,
+                    'payment_type' => 'consegna',
+                ],
             ]);
 
             $this->step = 7;
@@ -894,6 +975,15 @@ class Configuratore extends Component
         ];
 
         return $mapping[$value] ?? $value;
+    }
+
+    #[Computed]
+    public function isBookingEnabled(): bool
+    {
+        return ($this->selectedDate !== null && $this->selectedDate !== '')
+            && ($this->selectedTimeSlot !== null && $this->selectedTimeSlot !== '')
+            && ($this->selectedPayment !== null && $this->selectedPayment !== '')
+            && $this->privacyConsent === true;
     }
 
     public function getTotalTime(): float

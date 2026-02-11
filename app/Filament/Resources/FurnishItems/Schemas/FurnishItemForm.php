@@ -102,6 +102,7 @@ class FurnishItemForm
                                     ->default(0),
                                 Repeater::make('properties')
                                     ->label('Sotto-proprietà')
+                                    ->columnSpanFull()
                                     ->schema([
                                         TextInput::make('name')
                                             ->label('Nome')

@@ -23,7 +23,7 @@ $roomButtons = [
                 @foreach($roomButtons as $room)
                     <button
                         wire:click="toggleRoom('{{ $room['key'] }}')"
-                        class="flex w-full relative items-center justify-center gap-3 py-4 flex-col btn {{ ($selectedRooms[$room['key']] ?? false) ? 'btn-primary text-black' : 'btn-primary opacity-50' }}"
+                        class="room-selection-btn flex w-full relative items-center justify-center gap-3 py-4 flex-col {{ ($selectedRooms[$room['key']] ?? false) ? 'btn-primary text-black' : 'btn-primary opacity-50' }}"
                     >
                         @if($selectedRooms[$room['key']] ?? false)
                             <span class="absolute top-2 right-2 inline-flex items-center justify-center w-8 h-8 rounded-full bg-emerald-500 text-white shadow-md">
