@@ -13,13 +13,7 @@ $roomButtons = [
     class="w-full bg-center bg-opacity-30 bg-repeat flex flex-col h-screen"
     style="background-image: url('{{ asset('images/bg.svg') }}')"
 >
-    @include('livewire.partials.header')
-
-
-
-    <div class="bg-base-100 border-b px-4 py-2">
-        @include('livewire.partials.progress-bar', ['currentStep' => 3])
-    </div>
+    @include('livewire.partials.header', ['currentStep' => 3])
 
     <div class="flex w-full flex-col items-center justify-center pb-20 flex-1">
         <div class="p-4 w-full bg-gray-50 max-w-4xl rounded-lg shadow-xl">
@@ -29,7 +23,7 @@ $roomButtons = [
                 @foreach($roomButtons as $room)
                     <button
                         wire:click="toggleRoom('{{ $room['key'] }}')"
-                        class="flex w-full relative items-center justify-center gap-3 py-4 rounded-lg flex-col {{ ($selectedRooms[$room['key']] ?? false) ? 'btn-primary text-black' : 'btn-primary opacity-50' }}"
+                        class="flex w-full relative items-center justify-center gap-3 py-4 flex-col btn {{ ($selectedRooms[$room['key']] ?? false) ? 'btn-primary text-black' : 'btn-primary opacity-50' }}"
                     >
                         @if($selectedRooms[$room['key']] ?? false)
                             <span class="absolute top-2 right-2 inline-flex items-center justify-center w-8 h-8 rounded-full bg-emerald-500 text-white shadow-md">

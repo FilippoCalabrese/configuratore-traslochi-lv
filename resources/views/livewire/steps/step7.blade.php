@@ -2,11 +2,7 @@
     class="w-full bg-center bg-opacity-30 bg-repeat flex flex-col h-screen"
     style="background-image: url('{{ asset('images/bg.svg') }}')"
 >
-    @include('livewire.partials.header')
-
-    <div class="bg-base-100 border-b px-4 py-2">
-        @include('livewire.partials.progress-bar', ['currentStep' => 7])
-    </div>
+    @include('livewire.partials.header', ['currentStep' => 7])
 
     <main class="flex w-full md:flex-row flex-col p-4 gap-4 justify-between flex-1">
         <div class="flex flex-1 gap-10 flex-col items-center justify-center w-full">

@@ -5,13 +5,7 @@
      x-init="initAutocomplete()"
 >
     <form wire:submit="submitStep2" class="flex flex-1 w-full flex-col">
-        @include('livewire.partials.header')
-
-
-
-        <div class="bg-base-100 border-b px-4 py-2">
-            @include('livewire.partials.progress-bar', ['currentStep' => 2])
-        </div>
+        @include('livewire.partials.header', ['currentStep' => 2])
 
         <div class="flex flex-1 flex-col pb-20 items-center justify-center w-full">
             <div class="p-8 card bg-base-100 w-full max-w-xl shadow-md">

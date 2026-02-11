@@ -10,20 +10,40 @@
      x-data="step4Handler()"
 >
     <form wire:submit="submitStep4" class="h-screen flex flex-col">
-        {{-- Header with room selector --}}
-        <div class="flex relative gap-10 bg-base-100 border-b p-4 w-full justify-between">
-            <div class="flex items-center gap-2 w-[70px]">
-                <img src="{{ asset('logo.png') }}" class="w-full h-auto" alt="Logo" />
+        {{-- Header with room selector and progress bar --}}
+        <div class="bg-base-100 border-b w-full">
+            <div class="flex items-center gap-6 md:gap-8 p-4">
+                <div class="flex items-center gap-2 w-[70px] flex-shrink-0">
+                    <img src="{{ asset('logo.png') }}" class="w-full h-auto" alt="Logo" />
+                </div>
+                <div class="flex-1 min-w-0">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="text-xs md:text-sm font-medium text-gray-600">
+                            Step 4 di 7
+                        </span>
+                        <span class="text-xs md:text-sm font-semibold text-primary">
+                            57%
+                        </span>
+                    </div>
+                    <div class="w-full bg-gray-200 h-2 md:h-3 rounded-full overflow-hidden shadow-inner">
+                        <div
+                            class="bg-primary h-full rounded-full transition-all duration-700 ease-out relative overflow-hidden"
+                            style="width: 57%"
+                        >
+                            <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent animate-shimmer"></div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="flex flex-col md:flex-row md:items-center w-full md:w-max justify-center md:gap-4">
-                <p class="text-sm md:text-lg font-medium text-gray-700 mb-1">
+            <div class="flex items-center justify-end gap-4 px-4 pb-3">
+                <p class="text-sm md:text-lg font-medium text-gray-700">
                     Cambia stanza:
                 </p>
                 @if(count($roomNames) > 0)
                     <select
                         wire:model.live="currentRoom"
                         wire:change="changeRoom($event.target.value)"
-                        class="select font-bold bg-yellow-200 uppercase relative select-bordered"
+                        class="select select-sm font-bold bg-yellow-200 uppercase select-bordered rounded-2xl"
                     >
                         @foreach($roomNames as $room)
                             <option value="{{ $room }}">{{ $room }}</option>
@@ -31,12 +51,6 @@
                     </select>
                 @endif
             </div>
-        </div>
-
-
-
-        <div class="bg-base-100 border-b px-4 py-2">
-            @include('livewire.partials.progress-bar', ['currentStep' => 4])
         </div>
 
         <div class="flex-1 pb-20">

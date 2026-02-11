@@ -15,6 +15,34 @@
     --brand-primary: #ffd600;
 }
 
+/* Rounded buttons to match UI style */
+.btn {
+    border-radius: 1rem !important; /* rounded-2xl */
+}
+
+.btn-xs {
+    border-radius: 0.5rem !important; /* rounded-lg */
+}
+
+.btn-sm {
+    border-radius: 0.75rem !important; /* rounded-xl */
+}
+
+.btn-lg {
+    border-radius: 1.25rem !important; /* rounded-2xl with more padding */
+}
+
+/* Rounded radio buttons and checkboxes */
+.radio,
+.checkbox {
+    border-radius: 0.5rem !important; /* rounded-lg */
+}
+
+.radio-primary:checked,
+.checkbox-primary:checked {
+    border-radius: 0.5rem !important;
+}
+
 .btn-primary {
     background-color: var(--brand-primary) !important;
     border-color: var(--brand-primary) !important;
