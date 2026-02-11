@@ -13,6 +13,7 @@ use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
+use UnitEnum;
 
 class FurnishItemResource extends Resource
 {
@@ -26,7 +27,7 @@ class FurnishItemResource extends Resource
 
     protected static ?string $pluralModelLabel = 'Forniture';
 
-    protected static ?string $navigationGroup = 'Catalogo';
+    protected static string|UnitEnum|null $navigationGroup = 'Catalogo';
 
     public static function form(Schema $schema): Schema
     {
