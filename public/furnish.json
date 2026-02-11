@@ -1,0 +1,1916 @@
+{
+  "Soggiorno": [
+    {
+      "name": "Scatola",
+      "image": "scatola_1.svg",
+      "minProperties": 1,
+      "label": "Dimensioni scatola",
+      "properties": [
+        {
+          "name": "piccola (40 x 30 x 30 cm)",
+          "price": 1.6,
+          "m3": 0.036,
+          "tempo_carico": 1,
+          "tempo_scarico": 0
+        },
+        {
+          "name": "media (60x40x40 - 80x60x40 cm)",
+          "price": 1.8,
+          "m3": 0.1,
+          "tempo_carico": 1,
+          "tempo_scarico": 0
+        },
+        {
+          "name": "grande (120 x 80 x 60 cm)",
+          "price": 2,
+          "m3": 0.5,
+          "tempo_carico": 1,
+          "tempo_scarico": 0
+        }
+      ]
+    },
+    {
+      "name": "Divano",
+      "label": "Forma del divano",
+      "minProperties": 2,
+      "image": "divano.svg",
+      "properties": [
+        {
+          "name": "Lineare",
+          "label": "Tiplogia divano lineare",
+          "properties": [
+            {
+              "name": "Poltrona",
+              "price": 30,
+              "m3": 1,
+              "tempo_carico": 5,
+              "tempo_scarico": 5
+            },
+            {
+              "name": "2 Posti",
+              "price": 40,
+              "m3": 1.5,
+              "tempo_carico": 7,
+              "tempo_scarico": 7
+            },
+            {
+              "name": "3 Posti",
+              "price": 45,
+              "m3": 2,
+              "tempo_carico": 7,
+              "tempo_scarico": 7
+            },
+            {
+              "name": "3 Posti + Penisola",
+              "price": 55,
+              "m3": 2.5,
+              "tempo_carico": 7,
+              "tempo_scarico": 7
+            },
+            {
+              "name": "Divano Letto lineare",
+              "price": 60,
+              "m3": 2,
+              "tempo_carico": 7,
+              "tempo_scarico": 7
+            }
+          ]
+        },
+        {
+          "name": "Angolare",
+          "label": "Tiplogia divano angolare",
+          "properties": [
+            {
+              "name": "5 Posti",
+              "price": 70,
+              "m3": 2.4,
+              "tempo_carico": 10,
+              "tempo_scarico": 10
+            },
+            {
+              "name": "6 Posti",
+              "price": 80,
+              "m3": 2.6,
+              "tempo_carico": 10,
+              "tempo_scarico": 10
+            },
+            {
+              "name": "7 Posti",
+              "price": 90,
+              "m3": 2.8,
+              "tempo_carico": 10,
+              "tempo_scarico": 10
+            },
+            {
+              "name": "8 Posti",
+              "price": 100,
+              "m3": 3,
+              "tempo_carico": 10,
+              "tempo_scarico": 10
+            },
+            {
+              "name": "9 Posti",
+              "price": 110,
+              "m3": 3.3,
+              "tempo_carico": 10,
+              "tempo_scarico": 10
+            },
+            {
+              "name": "10 Posti",
+              "price": 120,
+              "m3": 3.5,
+              "tempo_carico": 10,
+              "tempo_scarico": 10
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Tavolo sedie (incluse)",
+      "image": "tavolo_con_sedie.svg",
+      "minProperties": 2,
+      "label": "Materiale tavolo",
+      "properties": [
+        {
+          "name": "Legno",
+          "label": "Dimensione tavolo",
+          "properties": [
+            {
+              "name": "fino a 1 metro",
+              "price": 40,
+              "m3": 0.5,
+              "tempo_carico": 5,
+              "tempo_scarico": 5
+            },
+            {
+              "name": "oltre 1 metro",
+              "price": 60,
+              "m3": 0.5,
+              "tempo_carico": 5,
+              "tempo_scarico": 5
+            }
+          ]
+        },
+        {
+          "name": "Vetro",
+          "label": "Dimensione tavolo",
+          "properties": [
+            {
+              "name": "fino a 1 metro",
+              "price": 50,
+              "m3": 0.5,
+              "tempo_carico": 7,
+              "tempo_scarico": 7
+            },
+            {
+              "name": "oltre 1 metro",
+              "price": 80,
+              "m3": 0.5,
+              "tempo_carico": 7,
+              "tempo_scarico": 7
+            }
+          ]
+        },
+        {
+          "name": "Altro",
+          "label": "Dimensione tavolo",
+          "properties": [
+            {
+              "name": "fino a 1 metro",
+              "price": 50,
+              "m3": 0.5,
+              "tempo_carico": 7,
+              "tempo_scarico": 7
+            },
+            {
+              "name": "oltre 1 metro",
+              "price": 50,
+              "m3": 0.5,
+              "tempo_carico": 7,
+              "tempo_scarico": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Libreria",
+      "image": "libreria.svg",
+      "label": "Dimensioni libreria",
+      "minProperties": 1,
+      "properties": [
+        {
+          "name": "0-1 m",
+          "price": 30,
+          "m3": 0.5,
+          "tempo_carico": 5,
+          "tempo_scarico": 5
+        },
+        {
+          "name": "1-2 m",
+          "price": 60,
+          "m3": 0.7,
+          "tempo_carico": 10,
+          "tempo_scarico": 20
+        },
+        {
+          "name": "2-3 m",
+          "price": 90,
+          "m3": 0.9,
+          "tempo_carico": 15,
+          "tempo_scarico": 30
+        },
+        {
+          "name": "3-4 m",
+          "price": 120,
+          "m3": 1,
+          "tempo_carico": 15,
+          "tempo_scarico": 40
+        },
+        {
+          "name": "4-5 m",
+          "price": 150,
+          "m3": 1.1,
+          "tempo_carico": 15,
+          "tempo_scarico": 50
+        }
+      ]
+    },
+    {
+      "name": "Parete attrezzata (muro)",
+      "image": "parete_attrezzata.svg",
+      "minProperties": 1,
+      "label": "Dimensioni parete attrezzata",
+      "properties": [
+        {
+          "name": "0-1 m",
+          "price": 80,
+          "m3": 0.5,
+          "tempo_carico": 20,
+          "tempo_scarico": 60
+        },
+        {
+          "name": "1-2 m",
+          "price": 130,
+          "m3": 0.7,
+          "tempo_carico": 30,
+          "tempo_scarico": 75
+        },
+        {
+          "name": "2-3 m",
+          "price": 180,
+          "m3": 0.9,
+          "tempo_carico": 30,
+          "tempo_scarico": 90
+        },
+        {
+          "name": "3-4 m",
+          "price": 230,
+          "m3": 1.1,
+          "tempo_carico": 30,
+          "tempo_scarico": 105
+        },
+        {
+          "name": "4-5 m",
+          "price": 280,
+          "m3": 1.3,
+          "tempo_carico": 30,
+          "tempo_scarico": 180
+        }
+      ]
+    },
+    {
+      "name": "Parete attrezzata (no muro)",
+      "image": "parete_attrezzata.svg",
+      "minProperties": 1,
+      "label": "Dimensioni parete attrezzata",
+      "properties": [
+        {
+          "name": "0-1 m",
+          "price": 50,
+          "m3": 0.5,
+          "tempo_carico": 20,
+          "tempo_scarico": 30
+        },
+        {
+          "name": "1-2 m",
+          "price": 80,
+          "m3": 0.7,
+          "tempo_carico": 30,
+          "tempo_scarico": 45
+        },
+        {
+          "name": "2-3 m",
+          "price": 110,
+          "m3": 0.9,
+          "tempo_carico": 30,
+          "tempo_scarico": 60
+        },
+        {
+          "name": "3-4 m",
+          "price": 140,
+          "m3": 1.1,
+          "tempo_carico": 30,
+          "tempo_scarico": 60
+        },
+        {
+          "name": "4-5 m",
+          "price": 170,
+          "m3": 1.3,
+          "tempo_carico": 30,
+          "tempo_scarico": 60
+        }
+      ]
+    },
+    {
+      "name": "Madia",
+      "image": "madia 1.svg",
+      "minProperties": 1,
+      "label": "Numero ante",
+      "properties": [
+        {
+          "name": "2 Ante",
+          "price": 40,
+          "m3": 0.5,
+          "tempo_carico": 20,
+          "tempo_scarico": 30
+        },
+        {
+          "name": "3 Ante",
+          "price": 50,
+          "m3": 0.7,
+          "tempo_carico": 20,
+          "tempo_scarico": 30
+        },
+        {
+          "name": "4 Ante",
+          "price": 60,
+          "m3": 1,
+          "tempo_carico": 20,
+          "tempo_scarico": 30
+        }
+      ]
+    },
+    {
+      "name": "Credenza",
+      "image": "credenza.svg",
+      "minProperties": 1,
+      "label": "Numero ante",
+      "properties": [
+        {
+          "name": "2 Ante",
+          "price": 40,
+          "m3": 0.5,
+          "tempo_carico": 20,
+          "tempo_scarico": 30
+        },
+        {
+          "name": "3 Ante",
+          "price": 50,
+          "m3": 0.7,
+          "tempo_carico": 20,
+          "tempo_scarico": 30
+        },
+        {
+          "name": "4 Ante",
+          "price": 60,
+          "m3": 1,
+          "tempo_carico": 20,
+          "tempo_scarico": 30
+        }
+      ]
+    },
+    {
+      "name": "Scrivania",
+      "image": "scrivania.svg",
+      "minProperties": 2,
+      "label": "Materiale scrivania",
+      "properties": [
+        {
+          "name": "Legno",
+          "label": "Dimensioni scrivania",
+          "properties": [
+            {
+              "name": "fino a 1 metro",
+              "price": 40,
+              "m3": 0.5,
+              "tempo_carico": 5,
+              "tempo_scarico": 5
+            },
+            {
+              "name": "oltre 1 metro",
+              "price": 60,
+              "m3": 0.7,
+              "tempo_carico": 5,
+              "tempo_scarico": 5
+            }
+          ]
+        },
+        {
+          "name": "Vetro",
+          "label": "Dimensioni scrivania",
+          "properties": [
+            {
+              "name": "fino a 1 metro",
+              "price": 50,
+              "m3": 0.5,
+              "tempo_carico": 7,
+              "tempo_scarico": 7
+            },
+            {
+              "name": "oltre 1 metro",
+              "price": 80,
+              "m3": 0.7,
+              "tempo_carico": 7,
+              "tempo_scarico": 7
+            }
+          ]
+        },
+        {
+          "name": "Altro",
+          "label": "Dimensioni scrivania",
+          "properties": [
+            {
+              "name": "fino a 1 metro",
+              "price": 50,
+              "m3": 0.5,
+              "tempo_carico": 7,
+              "tempo_scarico": 7
+            },
+            {
+              "name": "oltre 1 metro",
+              "price": 80,
+              "m3": 0.7,
+              "tempo_carico": 7,
+              "tempo_scarico": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Mensola",
+      "image": "mensola 1.svg",
+      "price": 10,
+      "m3": 0.1,
+      "tempo_carico": 5,
+      "tempo_scarico": 0
+    },
+    {
+      "name": "Piano forte",
+      "image": "pianoforte.svg",
+      "minProperties": 2,
+      "label": "Piano della casa",
+      "properties": [
+        {
+          "name": "1 Piano",
+          "price": 50,
+          "label": "Tipologia pianoforte",
+          "properties": [
+            {
+              "name": "Verticale",
+              "price": 300,
+              "m3": 1,
+              "tempo_carico": 10,
+              "tempo_scarico": 10
+            },
+            {
+              "name": "A coda",
+              "price": 400,
+              "m3": 1.5,
+              "tempo_carico": 10,
+              "tempo_scarico": 10
+            }
+          ]
+        },
+        {
+          "name": "2 Piano",
+          "price": 100,
+          "label": "Tipologia pianoforte",
+          "properties": [
+            {
+              "name": "Verticale",
+              "price": 300,
+              "m3": 1,
+              "tempo_carico": 10,
+              "tempo_scarico": 10
+            },
+            {
+              "name": "A coda",
+              "price": 400,
+              "m3": 1.5,
+              "tempo_carico": 10,
+              "tempo_scarico": 10
+            }
+          ]
+        },
+        {
+          "name": "3 Piano",
+          "price": 150,
+          "label": "Tipologia pianoforte",
+          "properties": [
+            {
+              "name": "Verticale",
+              "price": 300,
+              "m3": 1,
+              "tempo_carico": 10,
+              "tempo_scarico": 10
+            },
+            {
+              "name": "A coda",
+              "price": 400,
+              "m3": 1.5,
+              "tempo_carico": 10,
+              "tempo_scarico": 10
+            }
+          ]
+        },
+        {
+          "name": "4 Piano",
+          "price": 200,
+          "label": "Tipologia pianoforte",
+          "properties": [
+            {
+              "name": "Verticale",
+              "price": 300,
+              "m3": 1,
+              "tempo_carico": 10,
+              "tempo_scarico": 10
+            },
+            {
+              "name": "A coda",
+              "price": 400,
+              "m3": 1.5,
+              "tempo_carico": 10,
+              "tempo_scarico": 10
+            }
+          ]
+        },
+        {
+          "name": "5 Piano",
+          "price": 250,
+          "label": "Tipologia pianoforte",
+          "properties": [
+            {
+              "name": "Verticale",
+              "price": 300,
+              "m3": 1,
+              "tempo_carico": 10,
+              "tempo_scarico": 10
+            },
+            {
+              "name": "A coda",
+              "price": 400,
+              "m3": 1.5,
+              "tempo_carico": 10,
+              "tempo_scarico": 10
+            }
+          ]
+        },
+        {
+          "name": "6 Piano",
+          "price": 300,
+          "label": "Tipologia pianoforte",
+          "properties": [
+            {
+              "name": "Verticale",
+              "price": 300,
+              "m3": 1,
+              "tempo_carico": 10,
+              "tempo_scarico": 10
+            },
+            {
+              "name": "A coda",
+              "price": 400,
+              "m3": 1.5,
+              "tempo_carico": 10,
+              "tempo_scarico": 10
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Comò",
+      "image": "com.svg",
+      "price": 20,
+      "m3": 0.6,
+      "tempo_carico": 5,
+      "tempo_scarico": 0
+    },
+
+    {
+      "name": "Sedia",
+      "image": "sedia pieghevole.svg",
+      "price": 10,
+      "m3": 0.25,
+      "tempo_carico": 3,
+      "tempo_scarico": 0
+    },
+    {
+      "name": "Specchio",
+      "image": "specchio.svg",
+      "price": 10,
+      "m3": 0.1,
+      "tempo_carico": 5,
+      "tempo_scarico": 0
+    },
+    {
+      "name": "TV",
+      "image": "tv 1.svg",
+      "price": 10,
+      "m3": 0.2,
+      "tempo_carico": 3,
+      "tempo_scarico": 0
+    },
+    {
+      "name": "Tappeto",
+      "image": "tappeto.svg",
+      "price": 10,
+      "m3": 0.1,
+      "tempo_carico": 3,
+      "tempo_scarico": 0
+    },
+    {
+      "name": "Culla",
+      "image": "culla.svg",
+      "price": 10,
+      "m3": 0.6,
+      "tempo_carico": 5,
+      "tempo_scarico": 0
+    },
+    {
+      "name": "Orologio a pendolo",
+      "image": "orologio a pendolo.svg",
+      "price": 50,
+      "m3": 0.3,
+      "tempo_carico": 5,
+      "tempo_scarico": 0
+    },
+    {
+      "name": "Piantana",
+      "image": "lampada.svg",
+      "price": 10,
+      "m3": 0.2,
+      "tempo_carico": 3,
+      "tempo_scarico": 0
+    },
+    {
+      "name": "Vetrine",
+      "image": "vetrina.svg",
+      "minProperties": 1,
+      "label": "Numero ante",
+      "properties": [
+        {
+          "name": "2 Ante",
+          "price": 60,
+          "m3": 0.5,
+          "tempo_carico": 20,
+          "tempo_scarico": 30
+        },
+        {
+          "name": "3 Ante",
+          "price": 70,
+          "m3": 1.0,
+          "tempo_carico": 20,
+          "tempo_scarico": 30
+        },
+        {
+          "name": "4 Ante",
+          "price": 90,
+          "m3": 1.2,
+          "tempo_carico": 20,
+          "tempo_scarico": 30
+        }
+      ]
+    }
+  ],
+  "Cucina": [
+    {
+      "name": "Scatola",
+      "image": "scatola_1.svg",
+      "minProperties": 1,
+      "label": "Dimensioni scatola",
+      "properties": [
+        {
+          "name": "piccola (40 x 30 x 30 cm)",
+          "price": 1.6,
+          "m3": 0.036,
+          "tempo_carico": 1,
+          "tempo_scarico": 0
+        },
+        {
+          "name": "media (60x40x40 - 80x60x40 cm)",
+          "price": 1.8,
+          "m3": 0.1,
+          "tempo_carico": 1,
+          "tempo_scarico": 0
+        },
+        {
+          "name": "grande (120 x 80 x 60 cm)",
+          "price": 2,
+          "m3": 0.5,
+          "tempo_carico": 1,
+          "tempo_scarico": 0
+        }
+      ]
+    },
+    {
+      "name": "Cucina",
+      "image": "cucina.svg",
+      "minProperties": 3,
+      "label": "Tipo di cucina",
+      "properties": [
+        {
+          "name": "Lineare",
+          "label": "Dimensioni cucina",
+          "properties": [
+            {
+              "name": "0-3 m",
+              "price": 250,
+              "m3": 0.5,
+              "tempo_carico": 90,
+              "tempo_scarico": 138,
+              "label": "Penisola",
+              "properties": [
+                {
+                  "name": "con penisola",
+                  "price": 70,
+                  "m3": 1
+                },
+                {
+                  "name": "senza penisola",
+                  "price": 0,
+                  "m3": 0
+                }
+              ]
+            },
+            {
+              "name": "3-5 m",
+              "price": 350,
+              "m3": 0.7,
+              "tempo_carico": 90,
+              "tempo_scarico": 180,
+              "label": "Penisola",
+              "properties": [
+                {
+                  "name": "con penisola",
+                  "price": 70,
+                  "m3": 1
+                },
+                {
+                  "name": "senza penisola",
+                  "price": 0,
+                  "m3": 0
+                }
+              ]
+            },
+            {
+              "name": "5-7 m",
+              "price": 450,
+              "m3": 0.9,
+              "tempo_carico": 90,
+              "tempo_scarico": 198,
+              "label": "Penisola",
+              "properties": [
+                {
+                  "name": "con penisola",
+                  "price": 70,
+                  "m3": 1
+                },
+                {
+                  "name": "senza penisola",
+                  "price": 0,
+                  "m3": 0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Angolare",
+          "label": "Dimensioni cucina",
+          "properties": [
+            {
+              "name": "0-3 m",
+              "price": 300,
+              "m3": 0.5,
+              "tempo_carico": 90,
+              "tempo_scarico": 138,
+              "label": "Penisola",
+              "properties": [
+                {
+                  "name": "con penisola",
+                  "price": 70,
+                  "m3": 1
+                },
+                {
+                  "name": "senza penisola",
+                  "price": 0,
+                  "m3": 0
+                }
+              ]
+            },
+            {
+              "name": "3-5 m",
+              "price": 400,
+              "m3": 0.7,
+              "tempo_carico": 90,
+              "tempo_scarico": 180,
+              "label": "Penisola",
+              "properties": [
+                {
+                  "name": "con penisola",
+                  "price": 70,
+                  "m3": 1
+                },
+                {
+                  "name": "senza penisola",
+                  "price": 0,
+                  "m3": 0
+                }
+              ]
+            },
+            {
+              "name": "5-7 m",
+              "price": 500,
+              "m3": 0.9,
+              "tempo_carico": 90,
+              "tempo_scarico": 198,
+              "label": "Penisola",
+              "properties": [
+                {
+                  "name": "con penisola",
+                  "price": 70,
+                  "m3": 1
+                },
+                {
+                  "name": "senza penisola",
+                  "price": 0,
+                  "m3": 0
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Tavolo sedie (incluse)",
+      "image": "tavolo_con_sedie.svg",
+      "minProperties": 2,
+      "label": "Materiale tavolo",
+      "properties": [
+        {
+          "name": "Legno",
+          "label": "Dimensione tavolo",
+          "properties": [
+            {
+              "name": "fino a 1 metro",
+              "price": 40,
+              "m3": 0.5,
+              "tempo_carico": 5,
+              "tempo_scarico": 5
+            },
+            {
+              "name": "oltre 1 metro",
+              "price": 60,
+              "m3": 0.5,
+              "tempo_carico": 5,
+              "tempo_scarico": 5
+            }
+          ]
+        },
+        {
+          "name": "Vetro",
+          "label": "Dimensione tavolo",
+          "properties": [
+            {
+              "name": "fino a 1 metro",
+              "price": 50,
+              "m3": 0.5,
+              "tempo_carico": 7,
+              "tempo_scarico": 7
+            },
+            {
+              "name": "oltre 1 metro",
+              "price": 80,
+              "m3": 0.5,
+              "tempo_carico": 7,
+              "tempo_scarico": 7
+            }
+          ]
+        },
+        {
+          "name": "Altro",
+          "label": "Dimensione tavolo",
+          "properties": [
+            {
+              "name": "fino a 1 metro",
+              "price": 50,
+              "m3": 0.5,
+              "tempo_carico": 7,
+              "tempo_scarico": 7
+            },
+            {
+              "name": "oltre 1 metro",
+              "price": 50,
+              "m3": 0.5,
+              "tempo_carico": 7,
+              "tempo_scarico": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Credenza",
+      "image": "credenza.svg",
+      "minProperties": 1,
+      "label": "Numero ante",
+      "properties": [
+        {
+          "name": "2 Ante",
+          "price": 40,
+          "m3": 0.5,
+          "tempo_carico": 10,
+          "tempo_scarico": 10
+        },
+        {
+          "name": "3 Ante",
+          "price": 50,
+          "m3": 0.7,
+          "tempo_carico": 10,
+          "tempo_scarico": 10
+        },
+        {
+          "name": "4 Ante",
+          "price": 60,
+          "m3": 1.0,
+          "tempo_carico": 10,
+          "tempo_scarico": 10
+        }
+      ]
+    },
+    {
+      "name": "Vetrina",
+      "image": "vetrina.svg",
+      "minProperties": 1,
+      "label": "Numero ante",
+      "properties": [
+        {
+          "name": "2 Ante",
+          "price": 60,
+          "m3": 0.5,
+          "tempo_carico": 20,
+          "tempo_scarico": 30
+        },
+        {
+          "name": "3 Ante",
+          "price": 70,
+          "m3": 1.0,
+          "tempo_carico": 20,
+          "tempo_scarico": 30
+        },
+        {
+          "name": "4 Ante",
+          "price": 90,
+          "m3": 1.2,
+          "tempo_carico": 20,
+          "tempo_scarico": 30
+        }
+      ]
+    },
+    {
+      "name": "Freezer Ext",
+      "image": "freezer.svg",
+      "price": 30,
+      "m3": 0.5,
+      "tempo_carico": 7,
+      "tempo_scarico": 7
+    },
+    {
+      "name": "Microonde",
+      "image": "microwave.svg",
+      "price": 10,
+      "m3": 0.1,
+      "tempo_carico": 3,
+      "tempo_scarico": 0
+    }
+  ],
+  "Camera": [
+    {
+      "name": "Scatola",
+      "image": "scatola_1.svg",
+      "minProperties": 1,
+      "label": "Dimensioni scatola",
+      "properties": [
+        {
+          "name": "piccola (40 x 30 x 30 cm)",
+          "price": 1.6,
+          "m3": 0.036,
+          "tempo_carico": 1,
+          "tempo_scarico": 0
+        },
+        {
+          "name": "media (60x40x40 - 80x60x40 cm)",
+          "price": 1.8,
+          "m3": 0.1,
+          "tempo_carico": 1,
+          "tempo_scarico": 0
+        },
+        {
+          "name": "grande (120 x 80 x 60 cm)",
+          "price": 2,
+          "m3": 0.5,
+          "tempo_carico": 1,
+          "tempo_scarico": 0
+        }
+      ]
+    },
+    {
+      "name": "Letto",
+      "image": "letto matrimoniale.svg",
+      "minProperties": 2,
+      "label": "Tipologia letto",
+      "properties": [
+        {
+          "name": "Contenitore",
+          "label": "Dimensioni letto",
+          "properties": [
+            {
+              "name": "80cm",
+              "price": 40,
+              "m3": 0.4,
+              "tempo_carico": 10,
+              "tempo_scarico": 10
+            },
+
+            {
+              "name": "120cm",
+              "price": 60,
+              "m3": 0.4,
+              "tempo_carico": 10,
+              "tempo_scarico": 10
+            },
+
+            {
+              "name": "160cm",
+              "price": 80,
+              "m3": 0.4,
+              "tempo_carico": 10,
+              "tempo_scarico": 10
+            }
+          ]
+        },
+        {
+          "name": "Semplice",
+          "label": "Dimensioni letto",
+          "properties": [
+            {
+              "name": "80cm",
+              "price": 30,
+              "m3": 0.4,
+              "tempo_carico": 10,
+              "tempo_scarico": 10
+            },
+
+            {
+              "name": "120cm",
+              "price": 45,
+              "m3": 0.4,
+              "tempo_carico": 10,
+              "tempo_scarico": 10
+            },
+
+            {
+              "name": "160cm",
+              "price": 60,
+              "m3": 0.4,
+              "tempo_carico": 10,
+              "tempo_scarico": 10
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Armadio",
+      "image": "armadio.svg",
+      "minProperties": 3,
+      "label": "Tipologia armadio",
+      "properties": [
+        {
+          "name": "Lineare",
+          "label": "Scorrevole o battente",
+          "properties": [
+            {
+              "name": "Scorrevole",
+              "label": "Dimensioni armadio",
+              "properties": [
+                {
+                  "name": "2 Ante",
+                  "price": 90,
+                  "m3": 1.2,
+                  "tempo_carico": 40,
+                  "tempo_scarico": 50
+                },
+                {
+                  "name": "3 Ante",
+                  "price": 100,
+                  "m3": 1.3,
+                  "tempo_carico": 45,
+                  "tempo_scarico": 55
+                },
+                {
+                  "name": "4 Ante",
+                  "price": 120,
+                  "m3": 1.4,
+                  "tempo_carico": 50,
+                  "tempo_scarico": 60
+                }
+              ]
+            },
+            {
+              "name": "Battente",
+              "label": "Dimensioni armadio",
+              "properties": [
+                {
+                  "name": "2 Ante",
+                  "price": 50,
+                  "m3": 0.8,
+                  "tempo_carico": 20,
+                  "tempo_scarico": 30
+                },
+                {
+                  "name": "3 Ante",
+                  "price": 60,
+                  "m3": 0.9,
+                  "tempo_carico": 25,
+                  "tempo_scarico": 35
+                },
+                {
+                  "name": "4 Ante",
+                  "price": 70,
+                  "m3": 1,
+                  "tempo_carico": 30,
+                  "tempo_scarico": 40
+                },
+                {
+                  "name": "5 Ante",
+                  "price": 80,
+                  "m3": 1.1,
+                  "tempo_carico": 35,
+                  "tempo_scarico": 45
+                },
+                {
+                  "name": "6 Ante",
+                  "price": 90,
+                  "m3": 1.2,
+                  "tempo_carico": 40,
+                  "tempo_scarico": 50
+                },
+                {
+                  "name": "7 Ante",
+                  "price": 100,
+                  "m3": 1.3,
+                  "tempo_carico": 45,
+                  "tempo_scarico": 55
+                },
+                {
+                  "name": "8 Ante",
+                  "price": 110,
+                  "m3": 1.4,
+                  "tempo_carico": 50,
+                  "tempo_scarico": 60
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Ponte",
+
+          "label": "Dimensioni armadio",
+          "properties": [
+            {
+              "name": "Fino a 8 Ante",
+              "price": 110,
+              "m3": 1.4,
+              "tempo_carico": 50,
+              "tempo_scarico": 60
+            },
+            {
+              "name": "Oltre 8 Ante",
+              "price": 150,
+              "m3": 1.8,
+              "tempo_carico": 50,
+              "tempo_scarico": 60
+            }
+          ]
+        },
+        {
+          "name": "Angolare Battente",
+
+          "label": "Dimensioni armadio",
+          "properties": [
+            {
+              "name": "2 Ante",
+              "price": 100,
+              "m3": 0.8,
+              "tempo_carico": 30,
+              "tempo_scarico": 40
+            },
+            {
+              "name": "3 Ante",
+              "price": 110,
+              "m3": 0.9,
+              "tempo_carico": 35,
+              "tempo_scarico": 45
+            },
+            {
+              "name": "4 Ante",
+              "price": 120,
+              "m3": 1,
+              "tempo_carico": 40,
+              "tempo_scarico": 50
+            },
+            {
+              "name": "5 Ante",
+              "price": 130,
+              "m3": 1.1,
+              "tempo_carico": 45,
+              "tempo_scarico": 55
+            },
+            {
+              "name": "6 Ante",
+              "price": 140,
+              "m3": 1.2,
+              "tempo_carico": 50,
+              "tempo_scarico": 60
+            },
+            {
+              "name": "7 Ante",
+              "price": 150,
+              "m3": 1.3,
+              "tempo_carico": 55,
+              "tempo_scarico": 65
+            },
+            {
+              "name": "8 Ante",
+              "price": 160,
+              "m3": 1.4,
+              "tempo_carico": 60,
+              "tempo_scarico": 70
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Scrivania",
+      "image": "scrivania.svg",
+      "minProperties": 2,
+      "label": "Materiale scrivania",
+      "properties": [
+        {
+          "name": "Legno",
+          "label": "Dimensioni scrivania",
+          "properties": [
+            {
+              "name": "fino a 1 metro",
+              "price": 40,
+              "m3": 0.5,
+              "tempo_carico": 5,
+              "tempo_scarico": 5
+            },
+            {
+              "name": "oltre 1 metro",
+              "price": 60,
+              "m3": 0.7,
+              "tempo_carico": 5,
+              "tempo_scarico": 5
+            }
+          ]
+        },
+        {
+          "name": "Vetro",
+          "label": "Dimensioni scrivania",
+          "properties": [
+            {
+              "name": "fino a 1 metro",
+              "price": 50,
+              "m3": 0.5,
+              "tempo_carico": 7,
+              "tempo_scarico": 7
+            },
+            {
+              "name": "oltre 1 metro",
+              "price": 80,
+              "m3": 0.7,
+              "tempo_carico": 7,
+              "tempo_scarico": 7
+            }
+          ]
+        },
+        {
+          "name": "Altro",
+          "label": "Dimensioni scrivania",
+          "properties": [
+            {
+              "name": "fino a 1 metro",
+              "price": 50,
+              "m3": 0.5,
+              "tempo_carico": 7,
+              "tempo_scarico": 7
+            },
+            {
+              "name": "oltre 1 metro",
+              "price": 80,
+              "m3": 0.7,
+              "tempo_carico": 7,
+              "tempo_scarico": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Mensola",
+      "image": "mensola 1.svg",
+      "price": 10,
+      "m3": 0.1,
+      "tempo_carico": 5,
+      "tempo_scarico": 0
+    },
+    {
+      "name": "Comodino",
+      "image": "comodino.svg",
+      "price": 10,
+      "m3": 0.25,
+      "tempo_carico": 3,
+      "tempo_scarico": 0
+    },
+    {
+      "name": "Comò",
+      "image": "com.svg",
+      "price": 20,
+      "m3": 0.6,
+      "tempo_carico": 5,
+      "tempo_scarico": 0
+    },
+    {
+      "name": "TV",
+      "image": "tv 1.svg",
+      "price": 10,
+      "m3": 0.2,
+      "tempo_carico": 3,
+      "tempo_scarico": 0
+    },
+    {
+      "name": "Tappeto",
+      "image": "tappeto.svg",
+      "price": 10,
+      "m3": 0.1,
+      "tempo_carico": 3,
+      "tempo_scarico": 0
+    },
+    {
+      "name": "Culla",
+      "image": "culla.svg",
+      "price": 10,
+      "m3": 0.6,
+      "tempo_carico": 5,
+      "tempo_scarico": 0
+    },
+    {
+      "name": "Poltrona",
+      "image": "poltrona.svg",
+      "price": 30,
+      "m3": 1,
+      "tempo_carico": 5,
+      "tempo_scarico": 5
+    },
+    {
+      "name": "Specchio",
+      "image": "specchio.svg",
+      "price": 10,
+      "m3": 0.1,
+      "tempo_carico": 5,
+      "tempo_scarico": 0
+    }
+  ],
+  "Bagno": [
+    {
+      "name": "Scatola",
+      "image": "scatola_1.svg",
+      "minProperties": 1,
+      "label": "Dimensioni scatola",
+      "properties": [
+        {
+          "name": "piccola (40 x 30 x 30 cm)",
+          "price": 1.6,
+          "m3": 0.036,
+          "tempo_carico": 1,
+          "tempo_scarico": 0
+        },
+        {
+          "name": "media (60x40x40 - 80x60x40 cm)",
+          "price": 1.8,
+          "m3": 0.1,
+          "tempo_carico": 1,
+          "tempo_scarico": 0
+        },
+        {
+          "name": "grande (120 x 80 x 60 cm)",
+          "price": 2,
+          "m3": 0.5,
+          "tempo_carico": 1,
+          "tempo_scarico": 0
+        }
+      ]
+    },
+    {
+      "name": "Sotto lavabo",
+      "image": "sottolavabo.svg",
+      "minProperties": 1,
+      "label": "Dimensioni sotto lavabo",
+      "properties": [
+        {
+          "name": "2 Ante",
+          "price": 40,
+          "m3": 0.8,
+          "tempo_carico": 10,
+          "tempo_scarico": 0
+        },
+        {
+          "name": "3 Ante",
+          "price": 50,
+          "m3": 1,
+          "tempo_carico": 10,
+          "tempo_scarico": 0
+        }
+      ]
+    },
+    {
+      "name": "Specchiera",
+      "image": "specchiera.svg",
+      "price": 15,
+      "m3": 0.2,
+      "tempo_carico": 5,
+      "tempo_scarico": 0
+    },
+    {
+      "name": "Armadietto",
+      "label": "Dimensioni armadietto",
+      "minProperties": 1,
+      "image": "armadietto.svg",
+      "properties": [
+        {
+          "name": "2 Ante",
+          "price": 40,
+          "m3": 0.8,
+          "tempo_carico": 10,
+          "tempo_scarico": 10
+        },
+        {
+          "name": "3 Ante",
+          "price": 50,
+          "m3": 1,
+          "tempo_carico": 10,
+          "tempo_scarico": 0
+        },
+        {
+          "name": "4 Ante",
+          "price": 60,
+          "m3": 1.2,
+          "tempo_carico": 10,
+          "tempo_scarico": 0
+        }
+      ]
+    },
+    {
+      "name": "Cestino della biancheria",
+      "image": "cestino della biancheria.svg",
+      "price": 10,
+      "m3": 0.1,
+      "tempo_carico": 1,
+      "tempo_scarico": 0
+    },
+    {
+      "name": "Pattumiera",
+      "image": "pattumiera.svg",
+      "price": 10,
+      "m3": 0.1,
+      "tempo_carico": 1,
+      "tempo_scarico": 0
+    },
+    {
+      "name": "Mobiletto",
+      "image": "mobiletto.svg",
+      "minProperties": 1,
+      "label": "Dimensioni mobiletto",
+      "properties": [
+        {
+          "name": "2 Ante",
+          "price": 40,
+          "m3": 0.8,
+          "tempo_carico": 10,
+          "tempo_scarico": 10
+        },
+        {
+          "name": "3 Ante",
+          "price": 50,
+          "m3": 1,
+          "tempo_carico": 10,
+          "tempo_scarico": 0
+        },
+        {
+          "name": "4 Ante",
+          "price": 60,
+          "m3": 1.2,
+          "tempo_carico": 10,
+          "tempo_scarico": 0
+        }
+      ]
+    },
+    {
+      "name": "Appendi asciugamani",
+      "image": "appendi asciugamano.svg",
+      "price": 10,
+      "m3": 0.1,
+      "tempo_carico": 5,
+      "tempo_scarico": 0
+    },
+    {
+      "name": "Lavatrice",
+      "image": "lavatrice.svg",
+      "price": 40,
+      "m3": 0.6,
+      "tempo_carico": 10,
+      "tempo_scarico": 10
+    },
+    {
+      "name": "Asciugatrice",
+      "image": "asciugatrice.svg",
+      "price": 40,
+      "m3": 0.6,
+      "tempo_carico": 10,
+      "tempo_scarico": 10
+    },
+    {
+      "name": "Scaffale in metallo",
+      "image": "scaffale di metallo.svg",
+      "price": 10,
+      "m3": 0.1,
+      "tempo_carico": 5,
+      "tempo_scarico": 0
+    },
+    {
+      "name": "Aspirapolvere",
+      "image": "aspirapolvere.svg",
+      "price": 10,
+      "m3": 0.1,
+      "tempo_carico": 3,
+      "tempo_scarico": 0
+    },
+    {
+      "name": "Asse da stiro",
+      "image": "asse da stiro.svg",
+      "price": 10,
+      "m3": 0.1,
+      "tempo_carico": 3,
+      "tempo_scarico": 0
+    },
+    {
+      "name": "Scarpiera",
+      "image": "scarpiera.svg",
+      "price": 20,
+      "m3": 0.4,
+      "tempo_carico": 5,
+      "tempo_scarico": 0
+    },
+    {
+      "name": "Stendibiancheria",
+      "image": "stendino.svg",
+      "price": 10,
+      "m3": 0.1,
+      "tempo_carico": 5,
+      "tempo_scarico": 0
+    }
+  ],
+  "Giardino e Garage": [
+    {
+      "name": "Scatola",
+      "image": "scatola_1.svg",
+      "minProperties": 1,
+      "label": "Dimensioni scatola",
+      "properties": [
+        {
+          "name": "piccola (40 x 30 x 30 cm)",
+          "price": 1.6,
+          "m3": 0.036,
+          "tempo_carico": 1,
+          "tempo_scarico": 0
+        },
+        {
+          "name": "media (60x40x40 - 80x60x40 cm)",
+          "price": 1.8,
+          "m3": 0.1,
+          "tempo_carico": 1,
+          "tempo_scarico": 0
+        },
+        {
+          "name": "grande (120 x 80 x 60 cm)",
+          "price": 2,
+          "m3": 0.5,
+          "tempo_carico": 1,
+          "tempo_scarico": 0
+        }
+      ]
+    },
+    {
+      "name": "Barbecue",
+      "image": "barbecue.svg",
+      "price": 20,
+      "m3": 0.3,
+      "tempo_carico": 5,
+      "tempo_scarico": 0
+    },
+    {
+      "name": "Tavolo da giardino",
+      "image": "tavolo da giardino.svg",
+      "minProperties": 1,
+      "label": "Dimensioni tavolo da giardino",
+      "properties": [
+        {
+          "name": "fino a 1 metro",
+          "price": 40,
+          "m3": 0.5,
+          "tempo_carico": 5,
+          "tempo_scarico": 5
+        },
+        {
+          "name": "oltre 1 metro",
+          "price": 50,
+          "m3": 0.5,
+          "tempo_carico": 5,
+          "tempo_scarico": 5
+        }
+      ]
+    },
+    {
+      "name": "Tavolo pieghevole",
+      "image": "tavolo pieghevole.svg",
+      "price": 30,
+      "m3": 0.4,
+      "tempo_carico": 3,
+      "tempo_scarico": 0
+    },
+    {
+      "name": "Sedia pieghevole",
+      "image": "sedia pieghevole.svg",
+      "price": 10,
+      "m3": 0.1,
+      "tempo_carico": 3,
+      "tempo_scarico": 0
+    },
+    {
+      "name": "Poltrona da giardino",
+      "image": "poltrona da giardino.svg",
+      "price": 20,
+      "m3": 0.4,
+      "tempo_carico": 3,
+      "tempo_scarico": 0
+    },
+    {
+      "name": "Vaso",
+      "image": "vaso 1.svg",
+      "price": 10,
+      "m3": 0.1,
+      "tempo_carico": 3,
+      "tempo_scarico": 0
+    },
+    {
+      "name": "Dondolo",
+      "image": "dondolo.svg",
+      "price": 20,
+      "m3": 0.6,
+      "tempo_carico": 5,
+      "tempo_scarico": 0
+    },
+    {
+      "name": "Gazebo",
+      "image": "gazebo.svg",
+      "price": 40,
+      "m3": 0.8,
+      "tempo_carico": 25,
+      "tempo_scarico": 30
+    },
+    {
+      "name": "Panca",
+      "image": "panca.svg",
+      "price": 10,
+      "m3": 0.1,
+      "tempo_carico": 5,
+      "tempo_scarico": 0
+    },
+    {
+      "name": "Bicicletta",
+      "image": "bicicletta.svg",
+      "price": 10,
+      "m3": 0.1,
+      "tempo_carico": 3,
+      "tempo_scarico": 0
+    },
+    {
+      "name": "Monopattino",
+      "image": "monopattino.svg",
+      "price": 10,
+      "m3": 0.1,
+      "tempo_carico": 3,
+      "tempo_scarico": 0
+    },
+    {
+      "name": "Attrezzi da lavoro",
+      "image": "attrezzi da lavoro.svg",
+      "price": 10,
+      "m3": 0.1,
+      "tempo_carico": 3,
+      "tempo_scarico": 0
+    },
+    {
+      "name": "Tosaerba",
+      "image": "tosaerba.svg",
+      "price": 20,
+      "m3": 0.3,
+      "tempo_carico": 5,
+      "tempo_scarico": 0
+    },
+    {
+      "name": "Sci",
+      "image": "scii 1.svg",
+      "price": 10,
+      "m3": 0.1,
+      "tempo_carico": 3,
+      "tempo_scarico": 0
+    },
+    {
+      "name": "Moto",
+      "image": "moto.svg",
+      "price": 50,
+      "m3": 0.5,
+      "tempo_carico": 10,
+      "tempo_scarico": 10
+    }
+  ],
+  "Palestra e Altro": [
+    {
+      "name": "Cyclette",
+      "image": "tapis roulant_1.svg",
+      "price": 20,
+      "m3": 0.3,
+      "tempo_carico": 5,
+      "tempo_scarico": 0
+    },
+    {
+      "name": "Tapis Roulant",
+      "image": "cyclette_1.svg",
+      "price": 40,
+      "m3": 0.4,
+      "tempo_carico": 5,
+      "tempo_scarico": 0
+    },
+    {
+      "name": "Scatola",
+      "image": "scatola_1.svg",
+      "minProperties": 1,
+      "label": "Dimensioni scatola",
+      "properties": [
+        {
+          "name": "piccola (40 x 30 x 30 cm)",
+          "price": 1.6,
+          "m3": 0.036,
+          "tempo_carico": 1,
+          "tempo_scarico": 0
+        },
+        {
+          "name": "media (60x40x40 - 80x60x40 cm)",
+          "price": 1.8,
+          "m3": 0.1,
+          "tempo_carico": 1,
+          "tempo_scarico": 0
+        },
+        {
+          "name": "grande (120 x 80 x 60 cm)",
+          "price": 2,
+          "m3": 0.5,
+          "tempo_carico": 1,
+          "tempo_scarico": 0
+        }
+      ]
+    },
+    {
+      "name": "Borsone",
+      "image": "borsone_1.svg",
+      "price": 10,
+      "m3": 0.1,
+      "tempo_carico": 1,
+      "tempo_scarico": 0
+    },
+    {
+      "name": "Valigia",
+      "image": "valigia da viaggio.svg",
+      "minProperties": 1,
+      "label": "Dimensioni valigia",
+      "properties": [
+        {
+          "name": "piccola (fino a 55x40x20cm)",
+          "price": 10,
+          "m3": 0.4,
+          "tempo_carico": 1,
+          "tempo_scarico": 0
+        },
+        {
+          "name": "media (fino a 65x44x26cm)",
+          "price": 20,
+          "m3": 0.7,
+          "tempo_carico": 1,
+          "tempo_scarico": 0
+        },
+        {
+          "name": "grande (da 77x48x29 in su)",
+          "price": 30,
+          "m3": 1,
+          "tempo_carico": 1,
+          "tempo_scarico": 0
+        }
+      ]
+    },
+    {
+      "name": "Portaombrelli",
+      "image": "portaombrelli.svg",
+      "price": 10,
+      "m3": 0.1,
+      "tempo_carico": 1,
+      "tempo_scarico": 0
+    },
+    {
+      "name": "Stufa",
+      "image": "stufa.svg",
+      "price": 50,
+      "m3": 0.5,
+      "tempo_carico": 5,
+      "tempo_scarico": 0
+    },
+    {
+      "name": "Baule",
+      "image": "baule.svg",
+      "price": 50,
+      "m3": 0.5,
+      "tempo_carico": 5,
+      "tempo_scarico": 0
+    },
+    {
+      "name": "Quadro",
+      "image": "quadro.svg",
+      "price": 10,
+      "m3": 0.1,
+      "tempo_carico": 3,
+      "tempo_scarico": 0
+    },
+    {
+      "name": "Specchio",
+      "image": "specchio.svg",
+      "price": 10,
+      "m3": 0.1,
+      "tempo_carico": 3,
+      "tempo_scarico": 0
+    },
+    {
+      "name": "Tenda",
+      "image": "tenda.svg",
+      "price": 10,
+      "m3": 0.1,
+      "tempo_carico": 5,
+      "tempo_scarico": 0
+    },
+    {
+      "name": "Mensola",
+      "image": "mensola 1.svg",
+      "price": 10,
+      "m3": 0.1,
+      "tempo_carico": 3,
+      "tempo_scarico": 0
+    },
+    {
+      "name": "Lampada",
+      "image": "lampada.svg",
+      "price": 10,
+      "m3": 0.1,
+      "tempo_carico": 3,
+      "tempo_scarico": 0
+    }
+  ]
+}

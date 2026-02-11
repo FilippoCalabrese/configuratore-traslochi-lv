@@ -1,66 +1,141 @@
 @import 'tailwindcss';
-@import '../../vendor/livewire/flux/dist/flux.css';
+@plugin "daisyui";
 
 @source '../views';
-@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
-@source '../../vendor/livewire/flux-pro/stubs/**/*.blade.php';
-@source '../../vendor/livewire/flux/stubs/**/*.blade.php';
 
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
-    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
-
-    --color-zinc-50: #fafafa;
-    --color-zinc-100: #f5f5f5;
-    --color-zinc-200: #e5e5e5;
-    --color-zinc-300: #d4d4d4;
-    --color-zinc-400: #a3a3a3;
-    --color-zinc-500: #737373;
-    --color-zinc-600: #525252;
-    --color-zinc-700: #404040;
-    --color-zinc-800: #262626;
-    --color-zinc-900: #171717;
-    --color-zinc-950: #0a0a0a;
-
-    --color-accent: var(--color-neutral-800);
-    --color-accent-content: var(--color-neutral-800);
-    --color-accent-foreground: var(--color-white);
+    --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 }
 
-@layer theme {
-    .dark {
-        --color-accent: var(--color-white);
-        --color-accent-content: var(--color-white);
-        --color-accent-foreground: var(--color-neutral-800);
+/* Brand theme overrides (primary = yellow like mockup) */
+:root {
+    /* Utility custom property if needed elsewhere */
+    --brand-primary: #ffd600;
+}
+
+.btn-primary {
+    background-color: var(--brand-primary) !important;
+    border-color: var(--brand-primary) !important;
+    color: #000000 !important;
+}
+
+.btn-primary:hover,
+.btn-primary:focus-visible {
+    background-color: #e6c700 !important;
+    border-color: #e6c700 !important;
+    color: #000000 !important;
+}
+
+.bg-primary {
+    background-color: var(--brand-primary) !important;
+}
+
+.text-primary {
+    color: var(--brand-primary) !important;
+}
+
+/* Softer inputs like reference */
+.input-soft {
+    border-radius: 14px !important;
+    border-color: #e4e7ec !important;
+    background-color: #ffffff !important;
+}
+
+.input-soft:focus-visible,
+.input-soft:focus {
+    outline: none !important;
+    border-color: #c4ccd7 !important;
+    box-shadow: 0 0 0 1px #e4e7ec !important;
+}
+
+/* Custom grid for calendar */
+.custom-grid-cols {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+}
+
+/* Grid layout for furniture items */
+.furniture-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 1rem;
+    align-items: start;
+}
+
+.grid-item {
+    background: white;
+    border: 1px solid #ccccccc1;
+    border-radius: 10px;
+    padding: 1rem;
+    box-sizing: border-box;
+    height: auto;
+}
+
+/* Hide scrollbar for carousel */
+.scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+}
+
+/* Shimmer animation for progress bar */
+@keyframes shimmer {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(100%);
     }
 }
 
-@layer base {
-
-    *,
-    ::after,
-    ::before,
-    ::backdrop,
-    ::file-selector-button {
-        border-color: var(--color-gray-200, currentColor);
-    }
+.animate-shimmer {
+    animation: shimmer 2s infinite;
 }
 
-[data-flux-field]:not(ui-radio, ui-checkbox) {
-    @apply grid gap-2;
+/* Alpine.js cloak */
+[x-cloak] {
+    display: none !important;
 }
 
-[data-flux-label] {
-    @apply  !mb-0 !leading-tight;
+/* Fix SVG sizing for TailwindCSS v4 - inline SVGs need explicit dimensions
+   Must use !important to override TailwindCSS v4 layer specificity */
+.icon-xs {
+    width: 0.75rem !important;
+    height: 0.75rem !important;
+    display: inline-block !important;
+    vertical-align: middle;
+    flex-shrink: 0;
 }
-
-input:focus[data-flux-control],
-textarea:focus[data-flux-control],
-select:focus[data-flux-control] {
-    @apply outline-hidden ring-2 ring-accent ring-offset-2 ring-offset-accent-foreground;
+.icon-sm {
+    width: 1rem !important;
+    height: 1rem !important;
+    display: inline-block !important;
+    vertical-align: middle;
+    flex-shrink: 0;
 }
-
-/* \[:where(&)\]:size-4 {
-    @apply size-4;
-} */
+.icon-md {
+    width: 1.25rem !important;
+    height: 1.25rem !important;
+    display: inline-block !important;
+    vertical-align: middle;
+    flex-shrink: 0;
+}
+.icon-lg {
+    width: 1.5rem !important;
+    height: 1.5rem !important;
+    display: inline-block !important;
+    vertical-align: middle;
+    flex-shrink: 0;
+}
+.icon-xl {
+    width: 2rem !important;
+    height: 2rem !important;
+    display: inline-block !important;
+    vertical-align: middle;
+    flex-shrink: 0;
+}
