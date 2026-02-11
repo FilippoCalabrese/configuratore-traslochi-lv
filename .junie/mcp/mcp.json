@@ -1,0 +1,11 @@
+{
+    "mcpServers": {
+        "laravel-boost": {
+            "command": "/Users/filippocalabrese/Library/Application Support/Herd/bin/php84",
+            "args": [
+                "/Users/filippocalabrese/Documents/GitHub/configuratore-traslochi-lv/artisan",
+                "boost:mcp"
+            ]
+        }
+    }
+}
