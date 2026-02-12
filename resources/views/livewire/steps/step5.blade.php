@@ -3,7 +3,7 @@
     class="w-full bg-center bg-opacity-30 bg-repeat flex flex-col h-screen"
     style="background-image: url('{{ asset('images/bg.svg') }}')"
 >
-    @include('livewire.partials.header', ['currentStep' => 5])
+    @include('livewire.partials.header', ['currentStep' => 4])
 
     <main class="flex-1 w-full px-4 pb-24 pt-6">
         <div class="max-w-7xl mx-auto flex flex-col lg:flex-row gap-6">
@@ -216,20 +216,20 @@
     {{-- Bottom Navigation --}}
     <div class="flex fixed bottom-0 bg-base-100 border-t p-4 w-full justify-between">
         <button
-            wire:click="goToStep(4)"
+            wire:click="goToStep(3)"
             class="btn bg-gray-300 hover:bg-gray-400 text-gray-800 border-gray-300"
         >
             <svg class="icon-sm" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
             INDIETRO
         </button>
         <button
-            wire:click="submitStep5"
+            wire:click="submitStep4"
             {{ $totalPrice < 1 ? 'disabled' : '' }}
             class="btn btn-primary"
             wire:loading.attr="disabled"
         >
-            <span wire:loading wire:target="submitStep5" class="loading loading-spinner mx-[24px]"></span>
-            <span wire:loading.remove wire:target="submitStep5" class="flex gap-1.5">
+            <span wire:loading wire:target="submitStep4" class="loading loading-spinner mx-[24px]"></span>
+            <span wire:loading.remove wire:target="submitStep4" class="flex gap-1.5">
                 AVANTI
                 <svg class="icon-sm" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
             </span>

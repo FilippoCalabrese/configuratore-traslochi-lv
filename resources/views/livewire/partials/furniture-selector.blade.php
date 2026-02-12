@@ -11,6 +11,15 @@
         selectedDisplay: @js(!empty($firstLevel['name']) ? ($firstLevel['name'] . (isset($firstLevel['source_room']) ? ' (' . $firstLevel['source_room'] . ')' : '')) : ''),
         allOptions: @js($allFurnitureOptions),
     })"
+    x-init="
+        // Assicurati che il campo di ricerca sia sempre vuoto all'inizializzazione
+        searchTerm = '';
+        $nextTick(() => {
+            if ($refs.searchInput) {
+                $refs.searchInput.value = '';
+            }
+        });
+    "
 >
     {{-- Level 0: Searchable Select --}}
     <div class="flex items-center gap-4">
@@ -79,13 +88,15 @@
             </div>
         </div>
 
-        <button
-            type="button"
-            wire:click="removeSelection({{ $index }})"
-            class="btn btn-outline border-black/20 hover:bg-gray-100 hover:border-black/20 hover:text-black"
-        >
-            <svg class="icon-sm" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/></svg>
-        </button>
+        @if(!empty($firstLevel['name']))
+            <button
+                type="button"
+                wire:click="removeSelection({{ $index }})"
+                class="btn btn-outline border-black/20 hover:bg-gray-100 hover:border-black/20 hover:text-black"
+            >
+                <svg class="icon-sm" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/></svg>
+            </button>
+        @endif
     </div>
 
     {{-- Sub-levels (properties) --}}

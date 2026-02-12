@@ -1,4 +1,4 @@
-@props(['currentStep' => 1, 'totalSteps' => 7])
+@props(['currentStep' => 1, 'totalSteps' => 6])
 
 @php
     $progress = ($currentStep / $totalSteps) * 100;

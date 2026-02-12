@@ -82,30 +82,6 @@ class ConfigurationInfolist
                     ])
                     ->columns(3),
 
-                Section::make('Stanze Selezionate')
-                    ->schema([
-                        TextEntry::make('stanze_selezionate')
-                            ->label('Stanze')
-                            ->formatStateUsing(function ($state): string {
-                                if (is_array($state)) {
-                                    return implode(', ', $state);
-                                }
-
-                                if (is_string($state)) {
-                                    $decoded = json_decode($state, true);
-                                    if (is_array($decoded)) {
-                                        return implode(', ', $decoded);
-                                    }
-
-                                    return $state;
-                                }
-
-                                return 'Nessuna stanza selezionata';
-                            })
-                            ->columnSpanFull(),
-                    ])
-                    ->collapsible(),
-
                 Section::make('Configurazione Mobili')
                     ->schema([
                         FurnitureConfigView::make('furniture_config'),

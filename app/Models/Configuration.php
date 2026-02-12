@@ -22,7 +22,6 @@ class Configuration extends Model
         'ascensore',
         'piano_carico',
         'piano_scarico',
-        'stanze_selezionate',
         'furniture_config',
         'total_price',
         'total_carico_time',
@@ -34,7 +33,6 @@ class Configuration extends Model
     ];
 
     protected $casts = [
-        'stanze_selezionate' => 'array',
         'furniture_config' => 'array',
         'booking_details' => 'array',
         'imballaggio' => 'boolean',

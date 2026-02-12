@@ -21,7 +21,7 @@
     class="w-full bg-center bg-opacity-30 bg-repeat flex flex-col h-screen"
     style="background-image: url('{{ asset('images/bg.svg') }}')"
 >
-    @include('livewire.partials.header', ['currentStep' => 7])
+    @include('livewire.partials.header', ['currentStep' => 6])
 
     <main class="flex w-full md:flex-row flex-col p-4 gap-4 justify-center flex-1">
         <div class="flex flex-1 gap-10 flex-col items-center justify-center w-full max-w-3xl">

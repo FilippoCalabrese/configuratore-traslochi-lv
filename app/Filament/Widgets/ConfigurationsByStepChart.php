@@ -18,7 +18,6 @@ class ConfigurationsByStepChart extends ChartWidget
             4 => 'Step 4',
             5 => 'Step 5',
             6 => 'Step 6',
-            7 => 'Step 7',
         ];
 
         $data = Configuration::all()
@@ -34,7 +33,6 @@ class ConfigurationsByStepChart extends ChartWidget
             'rgba(34, 197, 94, 0.8)',   // Step 4 - Verde
             'rgba(59, 130, 246, 0.8)',  // Step 5 - Blu
             'rgba(139, 92, 246, 0.8)',  // Step 6 - Viola
-            'rgba(236, 72, 153, 0.8)',  // Step 7 - Rosa
         ];
 
         foreach ($steps as $stepNum => $stepLabel) {

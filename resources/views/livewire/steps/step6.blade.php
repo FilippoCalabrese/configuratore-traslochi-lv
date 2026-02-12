@@ -6,7 +6,7 @@
 @endphp
 
 <div class="w-full flex flex-col h-screen">
-    @include('livewire.partials.header', ['currentStep' => 6])
+    @include('livewire.partials.header', ['currentStep' => 5])
 
     <main class="flex w-full items-center justify-center flex-col pb-25 gap-4 flex-1">
         <div class="flex lg:flex-row relative h-full flex-col w-full flex-1 max-w-7xl mx-auto">
@@ -552,7 +552,7 @@
     {{-- Bottom Navigation --}}
     <div class="flex bg-base-100 border-t p-4 w-full justify-between">
         <button
-            wire:click="goToStep(5)"
+            wire:click="goToStep(4)"
             class="btn bg-gray-300 hover:bg-gray-400 text-gray-800 border-gray-300"
         >
             <svg class="icon-sm" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>

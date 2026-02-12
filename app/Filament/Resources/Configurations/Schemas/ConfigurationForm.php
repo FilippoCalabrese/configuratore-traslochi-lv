@@ -3,8 +3,6 @@
 namespace App\Filament\Resources\Configurations\Schemas;
 
 use App\Filament\Schemas\Components\FurnitureConfigView;
-use App\Models\Room;
-use Filament\Forms\Components\CheckboxList;
 use Filament\Forms\Components\KeyValue;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
@@ -98,34 +96,6 @@ class ConfigurationForm
                     ])
                     ->columns(3),
 
-                Section::make('Stanze Selezionate')
-                    ->schema([
-                        CheckboxList::make('stanze_selezionate')
-                            ->label('Stanze')
-                            ->options(function () {
-                                return Room::query()
-                                    ->orderBy('name')
-                                    ->pluck('name', 'name')
-                                    ->toArray();
-                            })
-                            ->columns(2)
-                            ->gridDirection('row')
-                            ->descriptions(function () {
-                                $rooms = Room::query()
-                                    ->withCount('furnishItems')
-                                    ->orderBy('name')
-                                    ->get();
-
-                                $descriptions = [];
-                                foreach ($rooms as $room) {
-                                    $descriptions[$room->name] = "{$room->furnish_items_count} mobili disponibili";
-                                }
-
-                                return $descriptions;
-                            }),
-                    ])
-                    ->collapsible(),
-
                 Section::make('Configurazione Mobili')
                     ->schema([
                         FurnitureConfigView::make('furniture_config'),
@@ -180,7 +150,7 @@ class ConfigurationForm
                             ->required()
                             ->default(1)
                             ->minValue(1)
-                            ->maxValue(7),
+                            ->maxValue(6),
                     ])
                     ->columns(2),
             ]);

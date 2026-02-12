@@ -45,20 +45,17 @@ class Configuratore extends Component
 
     public float $tempoTotale = 0;
 
-    // Step 3 fields
-    public array $selectedRooms = [
-        'Soggiorno' => true,
-        'Cucina' => true,
-        'Camera' => true,
-        'Bagno' => true,
-        'Giardino e Garage' => true,
-        'Palestra e Altro' => true,
-    ];
-
-    // Step 4 fields
+    // Step 3 fields (ex Step 4 - Furniture Selection)
     public string $currentRoom = '';
 
-    public array $roomNames = [];
+    public array $roomNames = [
+        'Soggiorno',
+        'Cucina',
+        'Camera',
+        'Bagno',
+        'Giardino e Garage',
+        'Palestra e Altro',
+    ];
 
     public array $selections = [];
 
@@ -148,13 +145,9 @@ class Configuratore extends Component
         $this->tempoTotale = (float) ($config->tempo_totale ?? 0);
         $this->transportCost = (float) ($config->transport_cost ?? 0);
 
-        if ($config->stanze_selezionate) {
-            $rooms = $config->stanze_selezionate;
-            $this->roomNames = $rooms;
-            $this->currentRoom = $rooms[0] ?? '';
-            foreach ($rooms as $room) {
-                $this->selectedRooms[$room] = true;
-            }
+        // Initialize currentRoom with first available room if not set
+        if (empty($this->currentRoom) && ! empty($this->roomNames)) {
+            $this->currentRoom = $this->roomNames[0];
         }
 
         if ($config->furniture_config) {
@@ -166,6 +159,11 @@ class Configuratore extends Component
             $this->totalCaricoTime = (float) ($config->total_carico_time ?? 0);
             $this->totalScaricoTime = (float) ($config->total_scarico_time ?? 0);
             $this->finalTotal = $this->calculateFinalTotal();
+        }
+
+        // Se siamo allo step 3, carica le selezioni per la stanza corrente
+        if ($this->step === 3 && ! empty($this->currentRoom)) {
+            $this->loadRoomSelections();
         }
     }
 
@@ -236,6 +234,14 @@ class Configuratore extends Component
             ]);
         }
 
+        // Initialize currentRoom if not set
+        if (empty($this->currentRoom) && ! empty($this->roomNames)) {
+            $this->currentRoom = $this->roomNames[0];
+        }
+
+        // Carica le selezioni per la stanza corrente
+        $this->loadRoomSelections();
+
         $this->step = 3;
         $this->isLoading = false;
 
@@ -261,39 +267,7 @@ class Configuratore extends Component
         ]);
     }
 
-    // ========== STEP 3: Room Selection ==========
-
-    public function toggleRoom($room)
-    {
-        $this->selectedRooms[$room] = ! $this->selectedRooms[$room];
-    }
-
-    public function submitStep3()
-    {
-        $selected = array_keys(array_filter($this->selectedRooms));
-        if (empty($selected)) {
-            $this->dispatch('showAlert', ['message' => 'Seleziona almeno una stanza']);
-
-            return;
-        }
-
-        $this->isLoading = true;
-        $this->roomNames = $selected;
-        $this->currentRoom = $selected[0];
-
-        $config = Configuration::where('config_id', $this->configId)->first();
-        if ($config) {
-            $config->update([
-                'stanze_selezionate' => $selected,
-                'current_step' => 4,
-            ]);
-        }
-
-        $this->step = 4;
-        $this->isLoading = false;
-    }
-
-    // ========== STEP 4: Furniture Selection ==========
+    // ========== STEP 3: Furniture Selection ==========
 
     public function changeRoom($room)
     {
@@ -306,13 +280,35 @@ class Configuratore extends Component
     private function saveCurrentRoomSelections()
     {
         if ($this->currentRoom && ! empty($this->selections)) {
-            $this->allRoomSelections[$this->currentRoom] = $this->selections;
+            // Filtra le selezioni vuote (senza nome) prima di salvare
+            $filteredSelections = array_filter($this->selections, function ($selection) {
+                $firstLevel = $selection['levels'][0] ?? [];
+                return ! empty($firstLevel['name'] ?? '');
+            });
+            $this->allRoomSelections[$this->currentRoom] = array_values($filteredSelections);
         }
     }
 
     private function loadRoomSelections()
     {
         $this->selections = $this->allRoomSelections[$this->currentRoom] ?? [];
+        // Assicurati che ci sia sempre almeno una selezione vuota
+        $this->ensureEmptySelection();
+    }
+
+    private function ensureEmptySelection()
+    {
+        // Controlla se c'è almeno una selezione vuota (senza nome) in prima posizione
+        $firstSelection = $this->selections[0] ?? null;
+        $firstLevel = $firstSelection['levels'][0] ?? [];
+        $hasEmptySelectionAtTop = ! empty($firstSelection) && empty($firstLevel['name']);
+
+        // Se non c'è una selezione vuota in prima posizione, aggiungine una all'inizio
+        if (! $hasEmptySelectionAtTop) {
+            array_unshift($this->selections, [
+                'levels' => [['name' => '', 'quantity' => 1]],
+            ]);
+        }
     }
 
     public function addSelection()
@@ -326,6 +322,8 @@ class Configuratore extends Component
     {
         unset($this->selections[$index]);
         $this->selections = array_values($this->selections);
+        // Assicurati che ci sia sempre almeno una selezione vuota dopo la rimozione
+        $this->ensureEmptySelection();
     }
 
     public function updateSelection($index, $level, $name)
@@ -348,10 +346,18 @@ class Configuratore extends Component
             }
 
             if ($found) {
+                // Controlla se la selezione corrente era vuota
+                $wasEmpty = empty($this->selections[$index]['levels'][0]['name'] ?? '');
+
                 $quantity = $this->selections[$index]['levels'][0]['quantity'] ?? 1;
                 $this->selections[$index]['levels'] = [
                     array_merge($found, ['quantity' => $quantity, 'source_room' => $foundRoom]),
                 ];
+
+                // Se la selezione era vuota, aggiungi una nuova selezione vuota in cima
+                if ($wasEmpty) {
+                    $this->ensureEmptySelection();
+                }
             }
         } else {
             // Sub-level selection
@@ -390,7 +396,7 @@ class Configuratore extends Component
         }
     }
 
-    public function submitStep4()
+    public function submitStep3()
     {
         $this->saveCurrentRoomSelections();
 
@@ -429,11 +435,11 @@ class Configuratore extends Component
         if ($config) {
             $config->update([
                 'furniture_config' => $furnitureConfig,
-                'current_step' => 5,
+                'current_step' => 4,
             ]);
         }
 
-        $this->step = 5;
+        $this->step = 4;
     }
 
     private function selectionHasRequiredProperties(array $selection): bool
@@ -640,7 +646,7 @@ class Configuratore extends Component
         }
     }
 
-    public function submitStep5()
+    public function submitStep4()
     {
         $this->isLoading = true;
 
@@ -652,15 +658,15 @@ class Configuratore extends Component
                 'total_carico_time' => $this->totalCaricoTime,
                 'total_scarico_time' => $this->totalScaricoTime,
                 'transport_cost' => $this->transportCost,
-                'current_step' => 6,
+                'current_step' => 5,
             ]);
         }
 
-        $this->step = 6;
+        $this->step = 5;
         $this->isLoading = false;
     }
 
-    // ========== STEP 6: Calendar & Booking ==========
+    // ========== STEP 5: Calendar & Booking ==========
 
     public function changeCalendarMonth($direction)
     {
@@ -784,7 +790,7 @@ class Configuratore extends Component
             // Se il pagamento è alla consegna, completa direttamente e crea record di pagamento
             $config->update([
                 'booking_details' => $bookingDetails,
-                'current_step' => 7,
+                'current_step' => 6,
                 'status' => 'completed',
                 'payment_status' => 'pending',
             ]);
@@ -803,7 +809,7 @@ class Configuratore extends Component
                 ],
             ]);
 
-            $this->step = 7;
+            $this->step = 6;
         } catch (\Exception $e) {
             $this->bookingMessage = $e->getMessage();
         } finally {

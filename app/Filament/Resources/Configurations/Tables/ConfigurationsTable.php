@@ -92,11 +92,10 @@ class ConfigurationsTable
                     ->options([
                         1 => 'Step 1 - Informazioni Cliente',
                         2 => 'Step 2 - Informazioni Trasporto',
-                        3 => 'Step 3 - Selezione Stanze',
-                        4 => 'Step 4 - Selezione Mobili',
-                        5 => 'Step 5 - Riepilogo',
-                        6 => 'Step 6 - Prenotazione',
-                        7 => 'Step 7 - Completata',
+                        3 => 'Step 3 - Selezione Mobili',
+                        4 => 'Step 4 - Riepilogo',
+                        5 => 'Step 5 - Prenotazione',
+                        6 => 'Step 6 - Completata',
                     ]),
             ])
             ->defaultSort('created_at', 'desc')
