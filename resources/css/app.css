@@ -86,7 +86,30 @@
 /* Custom grid for calendar */
 .custom-grid-cols {
     display: grid;
-    grid-template-columns: repeat(7, 1fr);
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+    gap: 0.25rem;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Desktop: slightly larger gap */
+@media (min-width: 641px) {
+    .custom-grid-cols {
+        gap: 0.375rem;
+    }
+}
+
+/* Mobile: smaller gap */
+@media (max-width: 640px) {
+    .custom-grid-cols {
+        gap: 0.25rem;
+    }
+    
+    .custom-grid-cols button,
+    .custom-grid-cols > div {
+        padding: 0.5rem !important;
+        min-width: 0;
+    }
 }
 
 /* Grid layout for furniture items */

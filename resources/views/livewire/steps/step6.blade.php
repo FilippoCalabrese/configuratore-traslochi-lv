@@ -176,9 +176,9 @@
             </div>
 
             {{-- Middle column: Calendar --}}
-            <div class="flex-1 p-6 lg:border-r border-gray-200 border-b">
+            <div class="flex-1 p-3 sm:p-6 lg:border-r border-gray-200 border-b min-w-0">
                 <h2 class="text-2xl font-bold text-gray-900 mb-6">Seleziona un giorno</h2>
-                <div class="bg-white border border-gray-200 rounded-3xl shadow-sm p-6">
+                <div class="bg-white border border-gray-200 rounded-3xl shadow-sm p-3 sm:p-6 w-full box-border">
                     <div class="flex justify-between items-center mb-4">
                         <button 
                             class="p-2 rounded-xl border border-gray-200 hover:bg-gray-50 transition-colors" 
@@ -194,7 +194,7 @@
                             <svg class="icon-sm" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
                         </button>
                     </div>
-                    <div class="custom-grid-cols gap-2">
+                    <div class="custom-grid-cols">
                         @foreach($calendarDays as $day)
                             @if($day === null)
                                 <div class="p-2"></div>
@@ -206,7 +206,7 @@
                                 @endphp
                                 <button
                                     wire:click="selectDate('{{ $day }}')"
-                                    class="p-3 border border-gray-200 rounded-2xl w-full font-medium transition-all {{ $isDisabled ? 'opacity-40 cursor-not-allowed bg-gray-50' : 'hover:bg-gray-50 hover:border-gray-300' }} {{ $isSelected ? 'bg-primary text-black border-primary shadow-sm' : 'bg-white text-gray-900' }}"
+                                    class="p-2 sm:p-3 border border-gray-200 rounded-2xl w-full font-medium transition-all text-sm sm:text-base {{ $isDisabled ? 'opacity-40 cursor-not-allowed bg-gray-50' : 'hover:bg-gray-50 hover:border-gray-300' }} {{ $isSelected ? 'bg-primary text-black border-primary shadow-sm' : 'bg-white text-gray-900' }}"
                                     {{ $isDisabled ? 'disabled' : '' }}
                                 >
                                     {{ $dayNum }}
